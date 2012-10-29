@@ -1,0 +1,54 @@
+﻿@model AJNewton.Models.ContactModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Contact";
+}
+@section JavaScript{
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Contact.js")" type="text/javascript"></script>
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.MailSent))
+{
+    <div id="contact_notification" title="Notice">
+        <p>@ViewBag.MailSent</p>
+    </div>
+}
+
+<div id="divContent">
+<h2 class="h1Contact">Contact Us</h2>
+<div style="float:left;width:440px;margin-right:20px;padding-top: 10px;">
+    <p>We’d love to hear from you. Please use the contact form and we will respond to your message as soon as we can.</p>
+    <p>Alternatively you can contact us using one of the methods below:</p>
+    <p style="font-size:18px">TELEPHONE<br /> <span style="color:#e10000;">01772 284622</span><br/></p>
+    <p style="font-size:18px">EMAIL<br /><a style="color:#e10000;" href="mailto:support@mobileplantmaintenance.co.uk">support@mobileplantmaintenance.co.uk</a></p>
+</div>
+
+@using (Html.BeginForm("contact", "Home", FormMethod.Post, new { id = "ContactForm" }))
+{
+        <h3 style="padding:0 0 10px 0">Contact Form</h3>
+        <ul id="ulContact">
+            <li>
+                @Html.TextBoxFor(model => model.name, new { title = "Name" })
+                <div class="validationMessage">@Html.ValidationMessageFor(model => model.name)</div>
+            </li>
+            <li>
+                @Html.TextBoxFor(model => model.email, new { title = "Email" })
+                <div class="validationMessage">@Html.ValidationMessageFor(model => model.email)</div>
+            </li>
+            <li>
+                @Html.TextBoxFor(model => model.phone, new { title = "Phone" })
+                <div class="validationMessage">@Html.ValidationMessageFor(model => model.phone)</div>
+            </li>            
+            <li>
+                @Html.TextAreaFor(model => model.message, new { id = "message", title = "Message", rows = "5", cols = "30" })
+                <div class="validationMessage">@Html.ValidationMessageFor(model => model.message)</div>
+            </li>
+        </ul>    
+        <div style="width:100%"><input type="submit" value="Send Message" onclick="return confirm('Are you sure you want to submit the form?')" /></div> 
+        <div id="myResult"></div>
+}
+@*</form>*@
+</div>
+<div class="clear"></div>

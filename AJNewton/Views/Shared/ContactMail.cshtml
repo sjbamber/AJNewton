@@ -1,0 +1,24 @@
+﻿@model AJNewton.Models.ContactModel
+
+<h1 class="h1Contact" style="color: #222; font-family: arial,sans-serif; font-size: 15pt; font-weight: bold; line-height: 1.3em; margin: 0px 0px 20px 0px; padding: 0px;">Customer Enquiry From AJ Newton Website</h1>
+
+<div id="divContactDetails">
+<table id="ulContactForm" style="font-family:arial,sans-serif; font-size: 11pt; background: #f1f1f1; width:550px;">
+    <tr style="margin-left: 10px; margin-top: 10px; margin-right: 20px; height:30px;">
+        <td style="width:100px;font-weight: normal;color: #222;">Name:</td>
+        <td style="color: #666;">@Model.name</td>
+    </tr>
+    <tr style="margin-left: 10px; margin-right: 20px; height:30px;">
+        <td style="width:100px;font-weight: normal;color: #222;">Email:</td>
+        <td style="color: #666;">@Model.email</td>
+    </tr>
+    <tr style="margin-left: 10px; margin-right: 20px; height:30px;">
+        <td style="width:100px;font-weight: normal;color: #222;">Phone:</td>
+        <td style="color: #666;">@Model.phone</td>
+    </tr>
+    <tr style="margin-top:3px; margin-right:20px; margin-bottom:60px; margin-left:10px; height:30px;">
+        <td style="width:100px;font-weight: normal;color: #222; vertical-align:top;">Message:</td>
+        <td style="color: #666;">@Raw(Model.message)</td>
+    </tr>                  
+</table>
+</div>
