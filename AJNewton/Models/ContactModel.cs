@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using AJNewton.Models.Validators;
 
 namespace AJNewton.Models
-{ 
+{
     public class ContactModel
     {
         [Required]
